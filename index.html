@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WINGO 1 MIN</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: white;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    color: #111;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 35px 20px 60px;
+}
+
+/* LOGO */
+.logo {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid red;
+    box-shadow: 0 0 22px rgba(255, 0, 0, .45);
+    margin-bottom: 20px;
+}
+
+/* TITLE */
+.title {
+    font-size: 46px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 5px 0 35px;
+}
+
+/* QUOTES */
+.quote {
+    color: red;
+    font-size: 27px;
+    font-weight: bold;
+    margin: 18px 0;
+}
+
+.description {
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: bold;
+    margin: 30px auto 40px;
+    max-width: 850px;
+}
+
+/* COUNTDOWN */
+.countdown-box {
+    border: 3px solid red;
+    border-radius: 25px;
+    padding: 25px 15px;
+    box-shadow: 0 0 18px rgba(255, 0, 0, .35);
+    background: #fff;
+}
+
+.timer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.timer span {
+    color: red;
+}
+
+.labels {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 8px;
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* JOIN TEXT */
+.join-text {
+    margin: 45px 0 25px;
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.telegram-btn {
+    display: block;
+    max-width: 850px;
+    margin: auto;
+    padding: 24px 20px;
+
+    background: red;
+    color: white;
+    text-decoration: none;
+
+    border-radius: 18px;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    box-shadow: 0 8px 0 #a90000,
+                0 0 25px rgba(255,0,0,.45);
+
+    transition: .15s;
+}
+
+.telegram-btn:active {
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 #a90000;
+}
+
+@media(max-width:600px) {
+
+    .container {
+        padding: 25px 12px 45px;
+    }
+
+    .logo {
+        width: 110px;
+        height: 110px;
+    }
+
+    .title {
+        font-size: 34px;
+    }
+
+    .quote {
+        font-size: 22px;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    .timer {
+        font-size: 34px;
+    }
+
+    .labels {
+        font-size: 11px;
+    }
+
+    .join-text {
+        font-size: 23px;
+    }
+
+    .telegram-btn {
+        font-size: 20px;
+        padding: 21px 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- APNI IMAGE KA NAAM YAHAN LIKHNA -->
+    <img src="logo.jpg" class="logo" alt="Logo">
+
+    <div class="title">
+        WINGO 1 MIN 🚩
+    </div>
+
+    <div class="quote">
+        🔥 Stay Updated • Stay Connected 🔥
+    </div>
+
+    <div class="quote">
+        Get the latest updates directly on Telegram
+    </div>
+
+    <div class="description">
+        Join our Telegram community for regular updates,
+        announcements and more!
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-box">
+
+        <div class="timer">
+            <div>00</div>
+            <span>:</span>
+            <div>00</div>
+            <span>:</span>
+            <div id="minutes">05</div>
+            <span>:</span>
+            <div id="seconds">00</div>
+        </div>
+
+        <div class="labels">
+            <div>DAYS</div>
+            <div>HOURS</div>
+            <div>MINUTES</div>
+            <div>SECONDS</div>
+        </div>
+
+    </div>
+
+    <div class="join-text">
+        👇 Click here to join 👇
+    </div>
+
+    <a
+        href="https://t.me/officiallvipw"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="telegram-btn"
+    >
+        ✈️ &nbsp; JOIN FREE TELEGRAM &nbsp; ✈️
+    </a>
+
+</div>
+
+<script>
+let totalSeconds = 5 * 60;
+
+function updateTimer() {
+
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+
+    if (totalSeconds > 0) {
+        totalSeconds--;
+    } else {
+        totalSeconds = 5 * 60;
+    }
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
